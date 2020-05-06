@@ -1,15 +1,21 @@
-package com.bridgelabz.codinclub.utils.AddressBookRepo;
-package com.bridgelabz.codinclub.models.Person;
+package com.bridgelabz.codinclub.utils;
+import com.bridgelabz.codinclub.models.Person;
+import com.bridgelabz.codinclub.utils.WriteCSV;
 import java.util.List;
-import java.util.Scanner;
+import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.Scanner;
 
-public class AddresssBookRepo {
+public class AddressBookRepo {
 	
-	final private List<Person> addressBook = new ArrayList<>();
+	
+	final private static List<Person> AddressBook = new ArrayList<Person>();
+//	final private static Scanner input = new Scanner(System.in);
 	
 	public void addToAddressBook(final Person person)
 	{
-		addressBook.add(person);
+		AddressBook.add(person);
+		WriteCSV.writePerson(person);
 	}
 
 	public static void displayContacts()
@@ -27,10 +33,7 @@ public class AddresssBookRepo {
 
          }
 	 }
-	public static void writeOut()
-	{
-		WriterCSV.write(AddressBook);
-        }
+	
 	
 }
 

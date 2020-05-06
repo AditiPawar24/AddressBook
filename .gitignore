@@ -1,0 +1,8 @@
+main
+models
+utils
+services
+*.class
+.*class
+Person.class
+

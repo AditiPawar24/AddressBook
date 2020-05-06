@@ -1,4 +1,4 @@
-package com.bridgelabz.codinclub.services.AddressBookServices;
+package com.bridgelabz.codinclub.services;
 
 
 public interface AddressBookServices

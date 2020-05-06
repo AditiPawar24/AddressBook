@@ -8,8 +8,8 @@ public final class AddressBookUtil {
    // default constructer
  }
 
-   public static int getUserNumber() {
-    return scanner.nextInt();
+   public static String getUserNumber() {
+    return scanner.nextLine();
   }
 
 }

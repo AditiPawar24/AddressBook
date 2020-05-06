@@ -1,5 +1,5 @@
-package com.bridgelabz.codinclub.model;
-import java.lang.Object;
+package com.bridgelabz.codinclub.models;
+//import java.lang.Object;
 /**
 * This POJO class helps to store address data like person Name, address, State
 * and etc.
@@ -7,11 +7,12 @@ import java.lang.Object;
 * @author Aditi
 *
 */
+
 public class Person {
 // Attribute to hold first name
-final private String firstName;
+private String firstName;
 // Attribute to hold last name
-final private String lastName;
+private String lastName;
 // Attribute to hold State
 private String state;
 // Attribute to hold Address
@@ -26,7 +27,7 @@ private String phone;
 public Person() {
 }
 
-public Person(String fristName, String lastName, String city, String address, String state, String pinCode, String phone)
+public Person(String firstName, String lastName, String city, String address, String state, String pinCode, String phone)
 {
 this.firstName = firstName;
 this.lastName = lastName;
@@ -44,7 +45,7 @@ this.phone = phone;
 */
 
 public String getFirstName() {
-return fristName;
+return firstName;
 }
 
 /**
@@ -171,7 +172,7 @@ this.phone = phone;
 */
 @Override
 public String toString() {
-return "Person [firstName :" + firstName + ", lastName:" +lastName + ", State:" + state + ", address:" + address + ", city=" + city + ", phone:" +phone + ", pinCode=" + pinCode +"]"; 
+return "Person [firstName :" + firstName + ", lastName:" +lastName + ", State:" + state + ", address:" + address + ", city=" + city + ", pinCode:" +pinCode + ", phone=" + phone +"]"; 
 
 }
 /**
