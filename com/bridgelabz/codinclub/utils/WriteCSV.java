@@ -9,21 +9,14 @@ import java.io.IOException;
 public class WriteCSV {
 
   private static final String CSV_HEADER = "fristName,lastName,address,city,state,pinCode,phone";
- 
- 
-
   public static boolean writePerson(Person person)
   {
-	  
 	  FileWriter fileWriter = null;
 	  boolean flag=false;
 	    try {
-	      fileWriter = new FileWriter("Person.csv");
-	 
-	      fileWriter.append(CSV_HEADER);
-	      fileWriter.append('\n');
-	 
-	      
+	        fileWriter = new FileWriter("Person.csv");
+	        fileWriter.append(CSV_HEADER);
+	        fileWriter.append('\n');       
 	        fileWriter.append(person.getFirstName());
 	        fileWriter.append(',');
 	        fileWriter.append(person.getLastName());
@@ -38,10 +31,8 @@ public class WriteCSV {
 	        fileWriter.append(',');
 	        fileWriter.append(String.valueOf(person.getPinCode()));
 	        fileWriter.append('\n');
-	      
-	 
-	      System.out.println("Write CSV successfully!");
-	      flag=true;
+	        System.out.println("Write CSV successfully!");
+	        flag=true;
 	    } catch (Exception e) {
 	      System.out.println("Writing CSV error!");
 	      e.printStackTrace();
@@ -53,13 +44,9 @@ public class WriteCSV {
 	      } catch (IOException e) {
 	        System.out.println("Flushing/closing error!");
 	        flag=false;
-	        
-	        
 	        e.printStackTrace();
 	      }
 	    }
-	    
-	    
 return flag;
 	  
   }

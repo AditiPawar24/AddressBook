@@ -6,6 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
  
+/**
+* This class helps to Read address data like person Name, address, State
+* and etc.
+*
+* @author Aditi
+*
+*/
+
 public class ReadCSV {
  
   private static final int PERSON_FIRSTNAME_FIRSTNAMEX = 0; 
@@ -17,24 +25,19 @@ public class ReadCSV {
   private static final int PERSON_PHONE_PHONEX = 6;
  
   public static void main(String[] args) {
- 
-    BufferedReader fileReader = null;
- 
-    try {
+   BufferedReader fileReader = null;
+     try {
       List<Person> persons = new ArrayList<Person>();
-      String line = "";
-      
-      
+      String line = "";     
       fileReader = new BufferedReader(new FileReader("person.csv"));
- 
       // Read CSV header
       fileReader.readLine();
- 
       // Read customer data line by line
       while ((line = fileReader.readLine()) != null) {
-        String[] tokens = line.split(",");
-        if (tokens.length > 0) {
-          Person person = new Person(
+      String[] tokens = line.split(",");
+      if (tokens.length > 0) {
+      Person person = new Person(
+        
               tokens[PERSON_FIRSTNAME_FIRSTNAMEX], 
               tokens[PERSON_LASTNAME_LASTNAMEX],
               tokens[PERSON_ADDRESS_ADDRESSX], 
@@ -45,6 +48,7 @@ public class ReadCSV {
 
           persons.add(person);
         }
+         
       }
  
       for (Person person: persons) {
@@ -54,7 +58,7 @@ public class ReadCSV {
     } catch (Exception e) {
       System.out.println("Reading CSV Error!");
       e.printStackTrace();
-    } finally {
+      } finally {
       try {
         fileReader.close();
       } catch (IOException e) {

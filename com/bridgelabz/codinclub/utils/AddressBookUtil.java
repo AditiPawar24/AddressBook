@@ -6,11 +6,14 @@ public final class AddressBookUtil {
 
    private AddressBookUtil() {
    // default constructer
- }
+    }
 
-   public static String getUserNumber() {
+   public static String getUserString() {
     return scanner.nextLine();
-  }
+    }
 
+   public static int getUserNumber() {
+	    return scanner.nextInt();
+    }
 }
 

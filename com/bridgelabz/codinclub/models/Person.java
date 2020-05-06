@@ -8,36 +8,51 @@ package com.bridgelabz.codinclub.models;
 *
 */
 
-public class Person {
-// Attribute to hold first name
-private String firstName;
-// Attribute to hold last name
-private String lastName;
-// Attribute to hold State
-private String state;
-// Attribute to hold Address
-private String address;
-// Attribute to hold city
-private String city;
-// Attribute to hold pin code
-private String pinCode;
-//Attribute to hold mobile no
-private String phone;
+public class Person
+ {
+	
+    // Attribute to hold Index
+    //private String id;	
+    // Attribute to hold first name
+    private String firstName;
+    // Attribute to hold last name
+    private String lastName;
+    // Attribute to hold State
+    private String state;
+    // Attribute to hold Address
+    private String address;
+    // Attribute to hold city
+    private String city;
+    // Attribute to hold pin code
+    private String pinCode;
+    //Attribute to hold mobile no
+    private String phone;
 
 public Person() {
 }
-
 public Person(String firstName, String lastName, String city, String address, String state, String pinCode, String phone)
 {
-this.firstName = firstName;
-this.lastName = lastName;
-this.city = city;
-this.address = address;
-this.state = state;
-this.pinCode = pinCode;
-this.phone = phone;
+   this.firstName = firstName;
+   this.lastName = lastName;
+   this.city = city;
+   this.address = address;
+   this.state = state;
+   this.pinCode = pinCode;
+   this.phone = phone;
 }
 
+/**
+* This method for index
+*
+* @return integer
+*/
+//public int getId() {
+//return id;
+//}
+
+//public void setId(int id) {
+//this.id = id;
+//}
 /**
 * This method retrieve frist Name
 *
@@ -176,16 +191,13 @@ return "Person [firstName :" + firstName + ", lastName:" +lastName + ", State:" 
 
 }
 /**
-* update person information erxcept name
+* update person information except name
 *
 * @return String
 */
-public void update(String city, String address, String state, String pinCode, String phone)
-{	
-
-	
-}
-
+//public void update(String city, String address, String state, String pinCode, String phone)
+//{
+//}
 }
 
 
