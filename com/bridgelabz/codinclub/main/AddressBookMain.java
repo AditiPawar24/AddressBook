@@ -10,7 +10,7 @@ import java.lang.Exception;
 
 public class AddressBookMain
 {
-  // final private static	Scanner input = new Scanner(System.in);
+  // final private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args)
     {		
@@ -21,12 +21,12 @@ public class AddressBookMain
         System.out.print("\n1 - Insert a New Person \n2 - Sort by Last Name \n3 - Delete Person \n4 - Edit person \n5 - Disply print Entries \n6 - Exit " );
         System.out.print("\n");
         // Scanner input = new Scanner(System.in);
-	      try{
-            } catch(Exception e) {
-			System.out.println("Error");
-	        }
-	        AddressBookServices addressBookServices=new AddressBookServicesImpl();
-            final String option = AddressBookUtil.getUserString();
+		try{
+        } catch(Exception e) {
+		System.out.println("Error");
+	    }
+	    AddressBookServices addressBookServices=new AddressBookServicesImpl();
+        final String option = AddressBookUtil.getUserString();
             switch(option) {
 		    //Add person's information
 	        case "1":
@@ -53,8 +53,8 @@ public class AddressBookMain
             break;
             default:
         	        System.out.println("Invalid Entry, pleasr try again");
-     }
-}
+        }
+    }
 
 }
 
