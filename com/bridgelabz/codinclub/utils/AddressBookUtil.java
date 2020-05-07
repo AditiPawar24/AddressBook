@@ -5,7 +5,7 @@ public final class AddressBookUtil {
    private final static Scanner scanner = new Scanner(System.in);
 
    private AddressBookUtil() {
-   // default constructer
+   // default constructor
     }
 
    public static String getUserString() {

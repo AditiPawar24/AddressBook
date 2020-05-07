@@ -3,7 +3,10 @@ import com.bridgelabz.codinclub.services.AddressBookServices;
 import com.bridgelabz.codinclub.models.Person;
 import com.bridgelabz.codinclub.utils.AddressBookUtil;
 import com.bridgelabz.codinclub.utils.WriteCSV;
+import com.bridgelabz.codinclub.utils.ReadCSV;
 import java.util.ArrayList;
+import java.util.Collections;
+
 /** Interface implementation class
 * @author Aditi
 **/
@@ -15,7 +18,9 @@ public class AddressBookServicesImpl implements AddressBookServices
          }
 	@Override
 	public void addPerson()
-	{
+	{   
+		System.out.print("Please enter your Full Name:");
+		final String fullName = AddressBookUtil.getUserString();	
         System.out.print("Please enter your First Name:");
 		final String firstName = AddressBookUtil.getUserString();		
 		System.out.print("Please enter your last Name:");
@@ -32,7 +37,7 @@ public class AddressBookServicesImpl implements AddressBookServices
 		System.out.print("Please enter your phone no:");
 	    final String phone = AddressBookUtil.getUserString();
 		    
-	    final Person person = new Person(firstName, lastName, address, state, city, pinCode, phone );
+	    final Person person = new Person(fullName, firstName, lastName, address, state, city, pinCode, phone );
 		   
 	    WriteCSV.writePerson(person);
 		AddressBookServicesImpl.add(person);
@@ -41,7 +46,7 @@ public class AddressBookServicesImpl implements AddressBookServices
 
     @Override
     public void deletePerson() {
-        Person person = getFirstName();
+        Person person = getFullName();
         if(person != null ){
        	AddressBookServicesImpl.remove(person);
         System.out.println("contact deleted");
@@ -50,21 +55,21 @@ public class AddressBookServicesImpl implements AddressBookServices
         }
     }
   
-    private Person getFirstName(){
+    private Person getFullName(){
         AddressBookUtil.getUserString();
         System.out.print("Enter first name of contact you want delete/edit: ");
-        String firstName = AddressBookUtil.getUserString();
-        Person person = serach(firstName);
+        String fullName = AddressBookUtil.getUserString();
+        Person person = serach(fullName);
         return person;
     }
-    private Person serach(String firstName) {
-		Person person= getFirstName(); 
+    private Person serach(String fullName) {
+		Person person= getFullName(); 
 		return person;
 	}
 
     @Override
     public void editPerson() {
-        Person person = getFirstName();
+        Person person = getFullName();
         if(person!= null ){
         System.out.print("Edit person's Address: ");
         final String address = AddressBookUtil.getUserString();
@@ -101,8 +106,33 @@ public class AddressBookServicesImpl implements AddressBookServices
     
     }
 
+    @Override
+    
+   public void sort()
+   {
+    	System.out.println("sort by name");
+    	AddressBookUtil.getUserString();
+    	Collections.sort(AddressBookServicesImpl, Person.fullNameSort);
+    	
+   }
+     
+    @Override
+    public void ReadCSV(){
+        ArrayList<Person> persons = ReadCSV.Read();
+        if(persons.isEmpty()){
+            System.out.println("Nothing to load from file.");
+        }else{
+            if(!AddressBookServicesImpl.isEmpty()){
+            	AddressBookServicesImpl.clear();
+            }
+            for(Person person : persons){
+            	AddressBookServicesImpl.add(person);
+            }
+            System.out.println("Data loaded from file");
+        }
+    
 }
-
+}
 
 
 

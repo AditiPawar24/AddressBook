@@ -1,4 +1,5 @@
 package com.bridgelabz.codinclub.models;
+import java.util.Comparator;
 //import java.lang.Object;
 /**
 * This POJO class helps to store address data like person Name, address, State
@@ -13,6 +14,8 @@ public class Person
 	
     // Attribute to hold Index
     //private String id;	
+	//Attribute to hold fullName
+    private String fullName;
     // Attribute to hold first name
     private String firstName;
     // Attribute to hold last name
@@ -30,8 +33,9 @@ public class Person
 
 public Person() {
 }
-public Person(String firstName, String lastName, String city, String address, String state, String pinCode, String phone)
+public Person(String fullName, String firstName, String lastName, String city, String address, String state, String pinCode, String phone)
 {
+   this.fullName = fullName;
    this.firstName = firstName;
    this.lastName = lastName;
    this.city = city;
@@ -54,17 +58,36 @@ public Person(String firstName, String lastName, String city, String address, St
 //this.id = id;
 //}
 /**
-* This method retrieve frist Name
+* This method retrieve full Name
 *
 * @return String
 */
 
+public String getFullName() {
+String fullName = firstName + "" +lastName;
+return fullName;	
+}
+
+/**
+* This method helps to set Name
+*
+* @param fullName
+*/
+public void setFullName(String fullName) {
+this.fullName = fullName;
+}
+
+/**
+* This method retrieve Name
+*
+* @return String
+*/
 public String getFirstName() {
 return firstName;
 }
 
 /**
-* This method helps to set frist Name
+* This method helps to set first Name
 *
 * @param firstName
 */
@@ -82,7 +105,7 @@ return lastName;
 }
 
 /**
-* This method helps to last name
+* This method helps set to last name
 *
 * @param 
 */
@@ -180,6 +203,18 @@ public void setPhone(String phone) {
 this.phone = phone;
 }
 
+public static Comparator<Person> fullNameSort = new Comparator<Person>()
+{
+	public int compare(Person person, Person person1)
+	{
+		String fullName1 = person.getFullName().toUpperCase();
+		String fullName2 = person1.getFullName().toUpperCase();
+		return fullName1.compareTo(fullName2);
+		
+	}
+};
+
+
 /**
 * This method helps to return object as String
 *
@@ -187,7 +222,7 @@ this.phone = phone;
 */
 @Override
 public String toString() {
-return "Person [firstName :" + firstName + ", lastName:" +lastName + ", State:" + state + ", address:" + address + ", city=" + city + ", pinCode:" +pinCode + ", phone=" + phone +"]"; 
+return "Person [fullName :" +fullName + ", firstName :" + firstName + ", lastName:" +lastName + ", State:" + state + ", address:" + address + ", city=" + city + ", pinCode:" +pinCode + ", phone=" + phone +"]"; 
 
 }
 /**
@@ -198,6 +233,7 @@ return "Person [firstName :" + firstName + ", lastName:" +lastName + ", State:" 
 //public void update(String city, String address, String state, String pinCode, String phone)
 //{
 //}
-}
+ 
+ }
 
 

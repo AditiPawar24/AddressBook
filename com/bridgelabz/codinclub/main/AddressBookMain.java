@@ -14,18 +14,21 @@ public class AddressBookMain
 
     public static void main(String[] args)
     {		
-		//menu options
+		
+	    final AddressBookServices addressBookServices = new AddressBookServicesImpl();
+	   //menu options
         System.out.print("Welcome to my Address book!");
+        addressBookServices.ReadCSV();
         System.out.print("\n");
         System.out.println("Enter your choice");
         System.out.print("\n1 - Insert a New Person \n2 - Sort by Last Name \n3 - Delete Person \n4 - Edit person \n5 - Disply print Entries \n6 - Exit " );
         System.out.print("\n");
-        // Scanner input = new Scanner(System.in);
+       
 		try{
         } catch(Exception e) {
 		System.out.println("Error");
 	    }
-	    AddressBookServices addressBookServices=new AddressBookServicesImpl();
+	    
         final String option = AddressBookUtil.getUserString();
             switch(option) {
 		    //Add person's information
@@ -35,6 +38,7 @@ public class AddressBookMain
             break;
             case "2":
                     System.out.print("Sort by last name : ");
+                    addressBookServices.sort();
             break;
             case "3":
                     System.out.print("Delete person: ");
